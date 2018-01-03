@@ -1,12 +1,26 @@
+/*
 .App {
   text-align: center;
 }
+*/
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /*animation: App-logo-spin infinite 20s linear;*/
+  
+  height: 50px;
+  border-radius:50%;    
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  -ms-transition: -ms-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
 }
 
+.App-logo:hover{
+  transform:rotate(360deg);
+  -ms-transform:rotate(360deg);
+  -webkit-transform:rotate(360deg);
+}
+
+/*
 .App-header {
   background-color: #222;
   height: 150px;
@@ -26,3 +40,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/
