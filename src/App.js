@@ -32,6 +32,11 @@ class App extends Component {
             </p>
           </Grid>
         </Jumbotron>
+        <Grid>
+          <h1>Calendar</h1>
+          <h1>Focus</h1>
+          <h1>Stats</h1>
+        </Grid>
       </div>
     );
   }
