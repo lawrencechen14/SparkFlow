@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './spark.png';
 import './App.css';
 import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
+import TimerContainer from './Timer';
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
                 View React Bootstrap Docs
               </Button>
             </p>
+            <TimerContainer />
           </Grid>
         </Jumbotron>
         <Grid>
