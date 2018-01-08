@@ -41,12 +41,16 @@ export class Timer {
 export class TimerContainer extends Component {
   constructor(props) {
     super(props)
-    this.timer = new Timer(() => this.setState({
-      time: this.timer.time,
-      active: this.timer.active
-    }))
+    this.timer = new Timer(() => {
+      this.setState({
+        time: this.timer.time,
+        active: this.timer.active
+      })
+      document.title = `[${this.toString(this.timer.time)}] SparkFlow`
+    })
     this.start = this.start.bind(this)
     this.stop = this.stop.bind(this)
+    this.toString = this.toString.bind(this)
     this.state = { active: false }
   }
 
@@ -54,7 +58,7 @@ export class TimerContainer extends Component {
     return (
     <div>
       <h1>
-        {Math.floor(this.timer.time / 60) + ':' + this.pad(this.timer.time % 60)}
+        {this.toString(this.timer.time)}
       </h1>
       <Button
         onClick = {!this.state.active ? this.start : this.stop}
@@ -66,6 +70,10 @@ export class TimerContainer extends Component {
     )
   }
 
+  toString(time) {
+    return Math.floor(time / 60) + ':' + this.pad(time % 60)
+  }
+
   pad(seconds) {
     let s = '0' + seconds
     return s.substr(s.length - 2)
@@ -74,6 +82,7 @@ export class TimerContainer extends Component {
   start() {
     this.timer.start()
     this.setState({ active: true, time: this.timer.time })
+    document.title = `[${this.toString(this.timer.time)}] SparkFlow`
   }
 
   stop() {
